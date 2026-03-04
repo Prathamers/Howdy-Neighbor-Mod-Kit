@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://5npgi62bttfo"]
+
+[ext_resource type="Script" uid="uid://cu6003hljs37y" path="res://character_body_3d.gd" id="1_iwpo4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iwpo4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iwpo4"]
+radius = 0.60677415
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_iwpo4"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=745722197]
+script = ExtResource("1_iwpo4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=953310415]
+shape = SubResource("CapsuleShape3D_iwpo4")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1413166221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5476198, 0)
+
+[node name="PickupZone" type="Area3D" parent="Camera3D" unique_id=2077298482]
+collision_mask = 31
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/PickupZone" unique_id=1217430455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176, -0.143, -1.5)
+shape = SubResource("SphereShape3D_iwpo4")
+
+[node name="HoldPosition" type="Marker3D" parent="Camera3D" unique_id=1350870908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17811209, 0.023118734, -1.9573929)
+
+[node name="Control" type="Control" parent="." unique_id=336142522]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=1649719124]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Control" unique_id=734176534]
+position = Vector2(2.7500076, -2.4999907)
+scale = Vector2(6.5000153, 3.4999917)
+mesh = SubResource("CapsuleMesh_iwpo4")

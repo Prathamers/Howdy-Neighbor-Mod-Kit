@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://5ih1rq1dg4ib"]
+
+[ext_resource type="PackedScene" uid="uid://deeiev06s6dyl" path="res://crowbar.glb" id="1_y5jjg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pskn5"]
+size = Vector3(0.26583862, 6.137146, 0.26367188)
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=413246219]
+
+[node name="Sketchfab_Scene" parent="." unique_id=144847823 instance=ExtResource("1_y5jjg")]
+transform = Transform3D(6.302801, 0, 0, 0, 7.656174, 0, 0, 0, 5.1240754, 0, 4.637064, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=656645348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026983745, 4.53206, -0.0071968436)
+shape = SubResource("BoxShape3D_pskn5")
